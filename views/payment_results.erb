@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Payment Results</h1>
+    <p>APR<br>
+      <%= @apr.to_fs(:percentage, {:precision => 4})%></p>
+    <p>Number of years<br>
+      <%= @years %></p>
+    <p>Principal<br>
+      <%= @principal.to_fs(:currency) %></p>
+    <p>Payment<br>
+      <% if @years == 0%>
+        $Inf
+      <% else %>
+        <%= @payment.to_fs(:currency) %>
+      <% end %>
+      </p>
+    <p><a href="/payment/new">Calculate another payment</a><p>
+  </body>
+</html>
